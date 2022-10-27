@@ -15,14 +15,14 @@ class ViewController: UIViewController {
     
     var timer:Timer = Timer()
     var count:Int = 0
-    //var timerCounting:Bool = false
+    var timerCounting:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func startAction(_ sender: Any) {
-        timer = Timer.scheduledTimer(timeInterval: 1,
+       timer = Timer.scheduledTimer(timeInterval: 1,
                                              target: self,
                                              selector: #selector(timerCounter),
                                              userInfo: nil,
