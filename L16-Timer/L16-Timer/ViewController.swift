@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     var timer:Timer = Timer()
+    //var timer: Timer?
     var count:Int = 0
     var timerCounting:Bool = false
     
@@ -22,12 +23,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startAction(_ sender: Any) {
-       timer = Timer.scheduledTimer(timeInterval: 1,
+        timer = Timer.scheduledTimer(timeInterval: 1,
                                              target: self,
                                              selector: #selector(timerCounter),
                                              userInfo: nil,
                                              repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
     }
+    
+   
+    
     
     @IBAction func stopAction(_ sender: Any) {
         timer.invalidate()
@@ -54,5 +59,7 @@ class ViewController: UIViewController {
             timeString += String(format: "%02d", minutes)
             return timeString
         }
+     
+
 }
 
