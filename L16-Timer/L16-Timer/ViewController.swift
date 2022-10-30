@@ -7,14 +7,15 @@
 
 import UIKit
 
+var timer:Timer = Timer()
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
-    var timer:Timer = Timer()
-    //var timer: Timer?
+    //var timer:Timer = Timer()
     var count:Int = 0
     var timerCounting:Bool = false
     
