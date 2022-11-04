@@ -7,15 +7,17 @@
 
 import UIKit
 
+var timer:Timer = Timer()
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
-    var timer:Timer = Timer()
+    //var timer:Timer = Timer()
     var count:Int = 0
-    //var timerCounting:Bool = false
+    var timerCounting:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,11 @@ class ViewController: UIViewController {
                                              selector: #selector(timerCounter),
                                              userInfo: nil,
                                              repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
     }
+    
+   
+    
     
     @IBAction func stopAction(_ sender: Any) {
         timer.invalidate()
@@ -54,5 +60,7 @@ class ViewController: UIViewController {
             timeString += String(format: "%02d", minutes)
             return timeString
         }
+     
+
 }
 
